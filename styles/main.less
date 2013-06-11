@@ -227,6 +227,7 @@ body {
 }
 
 #meta {
+  display: none;
   position: fixed;
   top: auto;
   right: 0;
@@ -236,6 +237,10 @@ body {
   width: 60px;
   .border-radius(@border-radius 0 0 @border-radius);
   background: fade(@custom-color, 50%);
+}
+
+.has-social #meta, .has-links #meta {
+  display: block;
 }
 
 #pop-sharing {
