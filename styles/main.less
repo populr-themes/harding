@@ -209,6 +209,14 @@ body {
   text-shadow: 2px 2px 2px rgba(0,0,0,0.61);
 }
 
+#main-region {
+  margin-top: @baseline * 3;
+}
+
+.has-title {
+  margin-top: 0;
+}
+
 #main-region, #pop-logo img, #meta {
   background: @off-white;
   .box-shadow(~'inset 0 0 24px rgba(0,0,0,0.11), 0 0 5px rgba(0,0,0,0.31)');
@@ -229,7 +237,7 @@ body {
 #meta {
   display: none;
   position: fixed;
-  top: auto;
+  top: @baseline * 3;
   right: 0;
   text-align: center;
   padding: unit(@gutter-width / 2, px);
@@ -237,6 +245,11 @@ body {
   width: 60px;
   .border-radius(@border-radius 0 0 @border-radius);
   background: fade(@custom-color, 50%);
+  .clearfix();
+}
+
+.has-logo #meta, .has-title #meta {
+  top: @baseline * 2;
 }
 
 .has-sharing #meta, .has-links #meta {
@@ -499,6 +512,7 @@ body {
     width: 720px;
     & .addthis_button_facebook_like {width: auto;}
     margin-bottom: @baseline;
+    top: auto;
   }
   #pop-sharing > a {
     display: inline-block;
