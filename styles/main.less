@@ -354,10 +354,13 @@ body {
     z-index: 2;
     position: absolute;
     max-width: 740px - unit(@gutter-width * 2, px);
-    padding: (@baseline / 2) unit(@gutter-width, px);
     bottom: @baseline * 3;
     background: fade(@custom-color, 50%);
     .border-radius(0 @border-radius @border-radius 0);
+    padding: (@baseline / 2) unit(@gutter-width, px);
+    &:empty {
+      display: none;
+    }
   }
   .asset-title {
     margin: 0;
