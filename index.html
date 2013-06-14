@@ -48,11 +48,11 @@
 
       {{#asset "imagegroup" size="1"}}
         {{#if_equal layout.sortOrder 0}}
-          {{{imageslider images width="740" height="475" crop-single=true}}}
+          {{{imageslider images width="740" height="484" crop-single=true}}}
           <div class="text">{{{title}}}{{{description}}}</div>
         {{else}}
           <div class="wrap">
-            {{{imageslider images width="220" height="168"}}}
+            {{{imageslider images width="220" height="176"}}}
             <div class="text">
               {{{title}}}
               {{{description}}}
@@ -62,7 +62,7 @@
       {{/asset}}
  
       {{#asset "imagegroup" size="2"}}
-        {{{imageslider images width="340" height="255"}}}
+        {{{imageslider images width="340" height="264" crop-single="true"}}}
         <div class="text">
           {{{title}}}
           {{{description}}}
@@ -70,7 +70,7 @@
       {{/asset}}
   
       {{#asset "imagegroup" size="3"}}
-        {{{imageslider images width="220" height="168" crop-single="true"}}}
+        {{{imageslider images width="220" height="176" crop-single="true"}}}
         <div class="text">
           {{{title}}}
           {{{description}}}
