@@ -127,37 +127,9 @@ a {
   color: @custom-color;
 }
 
+
 ul, ol {
-  padding-left: 0;  // hanging bullets
-}
-
-ul li {
-  list-style: none;
-  position: relative;
-  &:before {
-    content: "\2022";
-    line-height: 0;
-    position: absolute;
-    top: @baseline / 2;
-    left: -.8em;
-  }
-}
-
-ol {
-  counter-reset: section;
-}
-
-ol li {
-  list-style: none;
-  position: relative;
-  counter-increment: section;
-  &:before {
-    content: counter(section) '.';
-    line-height: 0;
-    position: absolute;
-    top: @baseline / 2;
-    left: -.8em;
-  }
+  margin: @baseline @baseline / 2;
 }
 
 button, a.btn {
@@ -304,16 +276,17 @@ body {
 #pop-links li:before {display: none;}
 
 .columnizer-row-contents-text {
-  width: 752px - (6px + unit(@gutter-width / 2, px));
+  width: 752px - (12px + unit(@gutter-width * 2, px));
   margin-left: -6px - unit(@gutter-width / 2, px);
-  padding-left: 6px + unit(@gutter-width / 2, px);
-  padding-top: @baseline * 2;
-  padding-bottom: @baseline * 2;
+  padding: @baseline * 2 6px + unit(@gutter-width, px);
   background-color: @custom-color;
   .box-shadow(~'0 1px 2px rgba(0, 0, 0, 0.47)');
   text-align: center;
   .asset-container {
-    margin-left: 0;
+    display: block;
+    float: none;
+    width: 100%;
+    margin: 0;
   }
 }
 
@@ -605,8 +578,7 @@ body {
 
   .columnizer-row-contents-text {
     margin: 0 0 @baseline * 3 0 !important;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: @baseline;
     .box-shadow(~'none !important');
     .columnizer-col {
       margin-bottom: 0 !important;
