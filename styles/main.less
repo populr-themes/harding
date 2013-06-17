@@ -395,6 +395,10 @@ body {
   .clearfix();
 }
 
+.asset-type-imagegroup .wrap .populr-image-slider {
+  width: 220px;
+}
+
 .asset-type-imagegroup .wrap .asset-title {
   padding-top: 0;
 }
@@ -592,9 +596,6 @@ body {
     .columnizer-col {
       .asset:after {
         display: none !important;
-        // width: 100% !important;
-        // margin: 0 !important;
-        // .box-shadow(~'none !important');
       }
       .img {
         .border-radius(@border-radius);
@@ -614,5 +615,15 @@ body {
   .columnizer-row:first-child .asset-type-imagegroup.asset-size-1 {
     width: 100% !important;
     margin: auto !important;
+  }
+
+  .asset-type-imagegroup .wrap {
+    .text {
+      clear: both;
+    }
+    .asset-title {
+      margin-bottom: @baseline / 2;
+      padding-top: @baseline;
+    }
   }
 }

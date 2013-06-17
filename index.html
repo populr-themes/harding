@@ -48,8 +48,10 @@
 
       {{#asset "imagegroup" size="1"}}
         {{#if_equal layout.sortOrder 0}}
-          {{{imageslider images width="740" height="484" crop-single=true}}}
-          <div class="text">{{{title}}}{{{description}}}</div>
+          <div class="header-image">
+            {{{imageslider images width="740" height="484" crop-single=true}}}
+            <div class="text">{{{title}}}{{{description}}}</div>
+          </div>
         {{else}}
           <div class="wrap">
             {{{imageslider images width="220" height="176"}}}
