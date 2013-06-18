@@ -50,7 +50,9 @@
         {{#if_equal layout.sortOrder 0}}
           <div class="header-image">
             {{{imageslider images width="740" height="484" crop-single=true}}}
-            <div class="text">{{{title}}}{{{description}}}</div>
+            {{#if_or title description}}
+              <div class="text">{{{title}}}{{{description}}}</div>
+            {{/if_or}}
           </div>
         {{else}}
           <div class="wrap">

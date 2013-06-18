@@ -5,7 +5,7 @@
 
 @import 'normalize.css';
 @import 'icons';
-@import url(//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&.css);
+@import 'ptsans';
 
 @columns: 12;
 @column-width: 40;
@@ -43,7 +43,7 @@
     .border-radius(@border-radius / 2);
     color: #fff;
     text-transform: uppercase;
-    font-weight: bold;
+    .font-bold();
     text-align: center;
     font: bold @file-font-size 'Lucida Console', Monaco, monospace;
     line-height: @width * 1.2;
@@ -86,10 +86,26 @@
   }
 }
 
+.font-bold() {
+  font-family: 'PTSansBold', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+  font-weight: normal;
+}
+
+.font-italic() {
+  font-family: 'PTSansItalic', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+}
+
+.font-bold-italic() {
+  font-family: 'PTSansBoldItalic', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+}
+
 
 /* BASIC */
 body {
-  font: @normal-font-size~'/'@baseline 'PT Sans', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+  font-family: 'PTSansRegular', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+  font-size: @normal-font-size;
+  line-height: @baseline;
+  font-weight: normal;
   color: @light-gray;
 }
 
@@ -99,7 +115,6 @@ p, h1, h2, h3 {
 }
 
 h1, h2, h3 {
-  font-weight: bold;
   line-height: @baseline * 2;
 }
 
@@ -127,6 +142,24 @@ a {
   color: @custom-color;
 }
 
+b, strong {
+  .font-bold();
+}
+
+i, em {
+  .font-italic();
+}
+
+b i,
+i b,
+strong i,
+i strong,
+b em,
+em b,
+strong em,
+em strong {
+  .font-bold-italic();
+}
 
 ul, ol {
   margin: @baseline @baseline / 2;
@@ -185,7 +218,6 @@ body {
 #pop-title {
   margin: @baseline * 2 0;
   font-size: @title-font-size;
-  font-weight: bold;
   color: @off-white;
   line-height: @baseline * 3;
   text-shadow: 2px 2px 2px rgba(0,0,0,0.61);
@@ -334,11 +366,11 @@ body {
     max-width: 740px - unit(@gutter-width * 2, px);
     bottom: @baseline * 3;
     background: fade(@custom-color, 50%);
+    .lt-ie9 & {
+      background: @custom-color;
+    }
     .border-radius(0 @border-radius @border-radius 0);
     padding: (@baseline / 2) unit(@gutter-width, px);
-    &:empty {
-      display: none;
-    }
   }
   .asset-title {
     margin: 0;
@@ -360,6 +392,9 @@ body {
     left: 0;
     right: 0;
     .opacity(0.65);
+    .lt-ie9 & {
+      filter: alpha(opacity=65);
+    }
     .border-radius(@border-radius);
   }
   .view {
@@ -382,8 +417,11 @@ body {
   }
   .body, .description {
     color: @off-white;
-    font-weight: bold;
+    .font-bold();
     letter-spacing: 1px;
+    .lt-ie9 & {
+      letter-spacing: 0;
+    }
     .text-shadow();
   }
   a {
@@ -416,6 +454,24 @@ body {
     margin-left: unit(@gutter-width / 2, px);  
   }
 }
+
+/* IE */
+.lt-ie9 {
+  .columnizer-row.odd .wrap {
+    .populr-image-slider {
+      float: left;
+      margin-right: unit(@gutter-width / 2, px);  
+    }
+  }
+
+  .columnizer-row.even .wrap {
+    .populr-image-slider {
+      float: right;
+      margin-left: unit(@gutter-width / 2, px);  
+    }
+  }
+}
+/* /IE */
 
 .columnizer-row-contents-imagegroup-imagegroup-imagegroup {
   .slide {

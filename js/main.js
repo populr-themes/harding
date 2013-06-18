@@ -1,4 +1,12 @@
 $(document).on('pop-initialized', function(){
+
+  if ($('html').is('.lt-ie9')) {
+    $('.asset').live('initialize', function(){
+      $('.columnizer-row:nth-child(even)').removeClass('even odd').addClass('even');
+      $('.columnizer-row:nth-child(odd)').removeClass('even odd').addClass('odd');
+    });
+  }
+
   $('.asset-type-imagegroup').live('initialize', function(){
     if ($(this).find('.header-image').length > 0) {
       return;
