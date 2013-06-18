@@ -134,7 +134,7 @@ h2 {
   padding-top: @baseline;
 }
 
-.asset-type-text .asset-title {
+.asset-type-text .asset-title, .asset-type-documentgroup .asset-title {
   padding-top: 0;
 }
 
@@ -504,6 +504,7 @@ body {
 .asset-type-documentgroup.asset-size-2, .asset-type-documentgroup.asset-size-3 {
   .documents li {
     .file-icon(30px, 8px, @off-white);
+    margin-top: @baseline / 2;
     a {
       display: inline-block;
       min-height: 30px * 1.2;
@@ -520,8 +521,18 @@ body {
       vertical-align: middle;
       line-height: @baseline;
       padding-left: 30px + @normal-font-size;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
+}
+
+.asset-type-documentgroup.asset-size-2 .documents li .filename {
+  width: 296px;
+}
+
+.asset-type-documentgroup.asset-size-3 .documents li .filename {
+  width: 176px;
 }
 
 .asset-type-documentgroup.asset-size-1 {
