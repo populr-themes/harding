@@ -28,3 +28,27 @@
 @custom-color: #92312a;
 
 @populr-theme-version: 1;
+
+
+// Text color mixins
+
+.text-color (@text-background) when (luma(@text-background) > 75%) {
+  color: #333;
+}
+.text-color (@text-background) when (luma(@text-background) =< 75%) {
+  color: #fff;
+  text-shadow: 1px 1px rgba(0,0,0,.25);
+}
+ 
+.link-colors (@text-background) when (luma(@custom-color) > 75%) {
+  color: darken(saturate(@custom-color, 50%), 50%);
+  &:active { color: darken(saturate(@custom-color, 50%), 20%); }
+}
+.link-colors (@text-background) when (luma(@custom-color) =< 75%) and (luma(@text-background) > 75%) {
+  color: @custom-color;
+  &:active { color: lighten(@custom-color, 20%); }  
+}
+.link-colors (@text-background) when (luma(@custom-color) =< 75%) and (luma(@text-background) =< 75%) {
+  color: #fff;
+  &:active { color: mix(@custom-color, #fff, 20%); }
+}
