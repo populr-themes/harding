@@ -27,6 +27,8 @@
        prevent issues with quote escaping and invalid markup. -->
   <script id="theme" type="text/x-handlebars-template">
 
+    {{logo max_width="175" max_height="70"}}
+
     {{{title}}}
 
     {{#region "columnizer" id="main-region" max_cols="3" max_auto_assets="0" dummy_content="I-1,I-1,I-1|V-1|T-1,T-1"}}
@@ -66,9 +68,9 @@
       {{/asset}}
  
       {{#asset "imagegroup" size="2"}}
+        {{{title}}}
         {{{imageslider images width="340" height="264" crop-single="true"}}}
         <div class="text">
-          {{{title}}}
           {{{description}}}
         </div>
       {{/asset}}
@@ -118,22 +120,22 @@
         </ul>
       {{/asset}}
  
-      {{#asset "embedgroup" size="1" width="740"}}
+      {{#asset "embedgroup" size="1" width="700"}}
+        {{{title}}}
         {{#embeds}}
           <div class="embed">{{{html}}}</div>
         {{/embeds}}
         <div class="text">
-          {{{title}}}
           {{{description}}}
         </div>
       {{/asset}}
 
       {{#asset "embedgroup" size="2" width="340"}}
+        {{{title}}}
         {{#embeds}}
           <div class="embed">{{{html}}}</div>
         {{/embeds}}
         <div class="text">
-          {{{title}}}
           {{{description}}}
         </div>
       {{/asset}}

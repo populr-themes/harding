@@ -28,6 +28,9 @@
 @title-font-size: 55px + @font-size-bump;
 
 /* MIXINS */
+#populr > .link-button();
+#populr > .icon();
+
 .text-shadow() {
   text-shadow: 1px 1px 1px rgba(0,0,0,0.61);
 }
@@ -135,8 +138,12 @@ h2 {
   padding-top: @baseline;
 }
 
-.asset-type-text .asset-title, .asset-type-documentgroup .asset-title {
-  padding-top: 0;
+.asset-type-text, .asset-type-documentgroup, .asset-type-imagegroup.asset-size-2, .asset-type-embedgroup.asset-size-2 {
+  .asset-title { padding-top: 0; }
+}
+
+.asset-type-imagegroup.asset-size-2, .asset-type-embedgroup.asset-size-1, .asset-type-embedgroup.asset-size-2 {
+  .description { margin-top: @baseline; }
 }
 
 a {
@@ -164,9 +171,10 @@ em strong {
 
 .body, .description {
   ul, ol {
-    margin: @baseline 0 @baseline 20px;
+    margin: 0 0 0 20px;
     .lt-ie9 & { margin-left: 25px; }
     padding-left: 0;
+    li { margin: @baseline / 2 0; }
   }
 }
 
@@ -223,7 +231,7 @@ body {
 #pop-title {
   margin: @baseline * 2 0;
   font-size: @title-font-size;
-  line-height: @baseline * 3;
+  line-height: 1.2;
   text-shadow: 2px 2px 2px rgba(0,0,0,0.61);
   .text-color(@background-color);
 }
@@ -236,7 +244,7 @@ body {
   margin-top: 0;
 }
 
-#main-region, #pop-logo img, #meta {
+#main-region, #pop-logo, #meta {
   background: @off-white;
   .box-shadow(~'inset 0 0 24px rgba(0,0,0,0.11), 0 0 5px rgba(0,0,0,0.31)');
   .border-radius(@border-radius);
@@ -244,16 +252,10 @@ body {
 
 #pop-logo {
   text-align: center;
-}
-
-#pop-logo img {
-  max-width: 740px - unit(@gutter-width * 2, px);
-  height: auto;
-}
-
-#pop-logo img, #meta {
   margin: 0 auto;
-  display: block;
+}
+
+#pop-logo, #meta {
   padding: unit(@gutter-width, px);
   .border-radius(0 0 @border-radius @border-radius);
 }
@@ -648,13 +650,19 @@ body {
   #populr > .mobile-reset();
   
   #pop-logo {
-    .box-sizing(border-box);
-    margin: 0 8px;
+    margin: 0 auto;
   }
 
   #pop-logo img {
     max-width: 100%;
     .box-sizing(border-box);
+  }
+
+  #pop-title {
+    font-size: 42px !important;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.41);
+    margin-left: 28px !important;
+    margin-right: 28px !important;
   }
 
   #main-region, #meta {
@@ -741,5 +749,19 @@ body {
   .asset-type-documentgroup.asset-size-3 .documents li .filename {
     width: auto !important;
   }
+}
 
+@media screen and (max-width: 520px) {
+  #pop-title {
+    font-size: 28px !important;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.2);
+  }
+
+  .columnizer-row:first-child .asset-type-imagegroup.asset-size-1, .asset-type-text.asset-size-1 {
+    h2 {
+      font-size: 24px !important;
+      line-height: 1.2 !important;
+      margin-bottom: @baseline / 2 !important;
+    }
+  }
 }
