@@ -28,8 +28,8 @@
 @title-font-size: 55px + @font-size-bump;
 
 /* MIXINS */
-#populr > .link-button();
-#populr > .icon();
+#populr > .link-button(@custom-color);
+#populr > .icon(@custom-color);
 
 .text-shadow() {
   text-shadow: 1px 1px 1px rgba(0,0,0,0.61);
@@ -107,7 +107,7 @@
 body {
   font-family: 'PTSansRegular', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
   font-size: @normal-font-size;
-  line-height: @baseline;
+  line-height: 1.5;
   font-weight: normal;
   color: @light-gray;
 }
@@ -118,13 +118,13 @@ p, h1, h2, h3 {
 }
 
 h1, h2, h3 {
-  line-height: @baseline * 2;
+  line-height: 1.2;
 }
 
 h2 {
   font-size: @header-font-size;
   color: @dark-gray;
-  line-height: @baseline;
+  line-height: 1.2;
 }
 
 .asset-title, #pop-title {
@@ -183,7 +183,7 @@ button, a.btn {
   background: @custom-color;
   color: @off-white;
   .border-radius(@border-radius);
-  line-height: @baseline;
+  line-height: 1.5;
   cursor: pointer;
   text-decoration: none;
   .transition(~'background 80ms ease-in-out');
@@ -319,6 +319,8 @@ body {
   margin-left: -6px - unit(@gutter-width / 2, px);
   padding: @baseline * 2 6px + unit(@gutter-width, px);
   background-color: @custom-color;
+  #populr > .link-button(@alt-custom-color);
+  #populr > .icon(@alt-custom-color);
   .box-shadow(~'0 1px 2px rgba(0, 0, 0, 0.47)');
   text-align: center;
   .asset-container {
@@ -419,7 +421,7 @@ body {
   h2 {
     font-size: @large-header-font-size;
     color: @off-white;
-    line-height: @baseline * 2;
+    line-height: 1.3;
     padding-top: 0;
   }
   .body, .description {
@@ -535,7 +537,7 @@ body {
       min-height: 30px * 1.2;
       height: auto !important;
       height: 30px * 1.2;
-      line-height: 30px * 1.2;
+      line-height: 2.5;
       text-decoration: none;
     }
     .file {
@@ -544,7 +546,7 @@ body {
     .filename {
       display: inline-block;
       vertical-align: middle;
-      line-height: @baseline;
+      line-height: 1.5;
       padding-left: 30px + @normal-font-size;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -578,7 +580,7 @@ body {
       min-height: 40px * 1.2;
       height: auto !important;
       height: 40px * 1.2;
-      line-height: 40px * 1.2;
+      line-height: 3.5;
     }
     .meta {
       width: 100%;
@@ -592,7 +594,7 @@ body {
     .filename {
       display: inline-block;
       vertical-align: middle;
-      line-height: @baseline;
+      line-height: 1.5;
       padding: 0 @normal-font-size 0 (40px + @normal-font-size);
     }
   }
