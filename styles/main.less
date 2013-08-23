@@ -622,8 +622,10 @@ body {
 
 #populr > #image-slider-themes > .basic(@arrow-color: @off-white, @bg-color: @custom-color);
 
-.columnizer-row-contents-imagegroup:first-child~.columnizer-row-contents-text {
+.columnizer-row-contents-imagegroup:first-child~.columnizer-row-contents-text { 
   margin-top: -22px;
+  position: relative;
+  z-index: 10;
 }
 
 @media screen and (max-width: 905px) {
