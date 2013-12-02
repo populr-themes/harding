@@ -404,9 +404,9 @@ body {
     position: relative;
     &:hover{
         .populr-image-slider{
-            .opacity(0.65);
+            .opacity(0.4);
             .lt-ie9 & {
-                filter: alpha(opacity=65);
+                filter: alpha(opacity=40);
             }
          }
          .my-cover{
@@ -500,7 +500,7 @@ body {
 }
 
 .columnizer-row:nth-child(odd) .wrap {
-  .populr-image-slider {
+  .populr-image-slider,.my-lightbox-parent {
     float: left;
     margin-right: unit(@gutter-width, px);  
   }
@@ -514,7 +514,7 @@ body {
 }
 
 .columnizer-row:nth-child(even) .wrap {
-  .populr-image-slider {
+  .populr-image-slider,.my-lightbox-parent {
     float: right;
     margin-left: unit(@gutter-width, px);  
   }
