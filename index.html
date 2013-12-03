@@ -47,36 +47,39 @@
         {{{title}}}
         {{{body}}}
       {{/asset}}
-
+      
       {{#asset "imagegroup" size="1"}}
         {{#if_equal layout.sortOrder 0}}
           <div class="header-image">
-            
-            <div class="my-lightbox-parent" style="width:740px; height:484px;">
             {{#if lightbox_enabled}}
-                <div class="my-cover">
-                    <div class="bg"></div>
-                    <div class="view">view</div>
+                <div class="my-lightbox-parent" style="width:740px; height:484px;">
+                    <div class="my-cover">
+                        <div class="bg"></div>
+                        <div class="view">view</div>
+                    </div>
+                    {{{imageslider images width="740" height="484" crop-single=true}}}
                 </div>
+            {{else}}
+                {{{imageslider images width="740" height="484" crop-single=true}}}
             {{/if}}
-            {{{imageslider images width="740" height="484" crop-single=true}}}
-            </div>
-            
             {{#if_or title description}}
               <div class="text">{{{title}}}{{{description}}}</div>
             {{/if_or}}
           </div>
         {{else}}
           <div class="wrap">
-            <div class="my-lightbox-parent" style="width:220px; height:176px;">
             {{#if lightbox_enabled}}
-                <div class="my-cover">
-                    <div class="bg"></div>
-                    <div class="view">view</div>
+                <div class="my-lightbox-parent" style="width:220px; height:176px;">
+                    <div class="my-cover">
+                        <div class="bg"></div>
+                        <div class="view">view</div>
+                    </div>
+                    {{{imageslider images width="220" height="176"}}}
                 </div>
+            {{else}}
+                {{{imageslider images width="220" height="176"}}}
             {{/if}}
-            {{{imageslider images width="220" height="176"}}}
-            </div>
+            
             <div class="text">
               {{{title}}}
               {{{description}}}
@@ -87,31 +90,38 @@
  
       {{#asset "imagegroup" size="2"}}
         {{{title}}}
-        <div class="my-lightbox-parent">
+        
             {{#if lightbox_enabled}}
-                <div class="my-cover">
-                    <div class="bg"></div>
-                    <div class="view">view</div>
+                <div class="my-lightbox-parent">
+                    <div class="my-cover">
+                        <div class="bg"></div>
+                        <div class="view">view</div>
+                    </div>
+                    {{{imageslider images width="340" height="264" crop-single="true"}}}
                 </div>
+            {{else}}
+                {{{imageslider images width="340" height="264" crop-single="true"}}}
             {{/if}}
-            {{{imageslider images width="340" height="264" crop-single="true"}}}
-       </div>
+            
         <div class="text">
           {{{description}}}
         </div>
       {{/asset}}
   
       {{#asset "imagegroup" size="3"}}
-        <div class="my-lightbox-parent">
             {{#if lightbox_enabled}}
-                <div class="my-cover">
-                    <div class="bg"></div>
-                    <div class="view">view</div>
-                </div>
+                <div class="my-lightbox-parent">
+                    <div class="my-cover">
+                        <div class="bg"></div>
+                        <div class="view">view</div>
+                    </div>
+                    {{{imageslider images width="220" height="176" crop-single="true"}}}
+                 </div>
+            {{else}}
+                {{{imageslider images width="220" height="176" crop-single="true"}}}
             {{/if}}
-            {{{imageslider images width="220" height="176" crop-single="true"}}}
-       </div>
-        <div class="text">
+            
+       <div class="text">
           {{{title}}}
           {{{description}}}
         </div>
