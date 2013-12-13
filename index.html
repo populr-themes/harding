@@ -52,7 +52,7 @@
         {{#if_equal layout.sortOrder 0}}
           <div class="header-image">
             {{#if lightbox_enabled}}
-                <div class="my-lightbox-parent" style="width:740px;">
+                <div class="my-lightbox-parent">
                     <div class="my-cover">
                         <div class="bg"></div>
                         <div class="view">view</div>
@@ -69,7 +69,7 @@
         {{else}}
           <div class="wrap">
             {{#if lightbox_enabled}}
-                <div class="my-lightbox-parent" style="width:220px;">
+                <div class="my-lightbox-parent">
                     <div class="my-cover">
                         <div class="bg"></div>
                         <div class="view">view</div>
@@ -79,7 +79,7 @@
             {{else}}
                 {{{imageslider images width="220" height="176"}}}
             {{/if}}
-            
+         
             <div class="text">
               {{{title}}}
               {{{description}}}
