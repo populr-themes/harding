@@ -356,7 +356,8 @@ body {
     width: 740px;
     margin-left: unit(-@gutter-width / 2, px);
     .populr-image-slider {
-      z-index: 1;
+      z-index: 10;
+      
     }
     img {
       .border-radius(@border-radius @border-radius 0 0);
@@ -389,13 +390,58 @@ body {
   }
 }
 
-.asset-type-imagegroup .cover {
-  z-index: 2;
+//light-box fix by tanvir
+.asset-type-imagegroup.asset-size-1 .wrap{
+    .my-lightbox-parent{
+        width:220px;
+    }
+}
+.asset-type-imagegroup.asset-size-1 .header-image{
+    .my-lightbox-parent{
+        width:740px;
+    }
+}
+
+.populr-image-slider{
+    z-index:10;
+    .populr-image-slider{
+            .opacity(1);
+            .lt-ie9 & {
+                filter: alpha(opacity=100);
+            }
+     }
+}
+.my-lightbox-parent{
+    position: relative;
+    &:hover{
+        .populr-image-slider{
+            .opacity(0.4);
+            .lt-ie9 & {
+                filter: alpha(opacity=40);
+            }
+         }
+         .my-cover{
+            .opacity(1);
+            .lt-ie9 & {
+                filter: alpha(opacity=1);
+            }
+        }
+    }
+}
+
+
+.my-lightbox-parent .my-cover {
+  z-index: 5;
+  opacity:0;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  .opacity(0);
+    .lt-ie9 & {
+        filter: alpha(opacity=0);
+    }
   .bg {
     background: @custom-color;
     position: absolute;
@@ -418,6 +464,15 @@ body {
     color: @off-white;
     padding: 0 8px 2px 8px;
   }
+}
+
+
+.cover{
+    display: none!important;
+}
+
+.copy{
+    display:none!important;
 }
 
 .columnizer-row:first-child .asset-type-imagegroup.asset-size-1, .asset-type-text.asset-size-1 {
@@ -456,7 +511,7 @@ body {
 }
 
 .columnizer-row:nth-child(odd) .wrap {
-  .populr-image-slider {
+  .populr-image-slider,.my-lightbox-parent {
     float: left;
     margin-right: unit(@gutter-width, px);  
   }
@@ -470,7 +525,7 @@ body {
 }
 
 .columnizer-row:nth-child(even) .wrap {
-  .populr-image-slider {
+  .populr-image-slider,.my-lightbox-parent {
     float: right;
     margin-left: unit(@gutter-width, px);  
   }
@@ -655,6 +710,10 @@ body {
   
   #populr > .mobile-reset();
   
+  .asset-type-imagegroup.asset-size-1 .my-lightbox-parent{
+    width:100%!important;
+  }
+  
   #pop-logo {
     margin: 0 auto;
   }
@@ -770,4 +829,9 @@ body {
       margin-bottom: @baseline / 2 !important;
     }
   }
+
+  .asset-type-imagegroup.asset-size-1 .my-lightbox-parent{
+    width:100%!important;
+  }
+
 }

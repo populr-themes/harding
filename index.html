@@ -11,7 +11,7 @@
   <meta itemprop="palette" content="palette-custom" title="Custom" data-preview="custom">
 
   <!-- Add any styles your theme requires here -->
-  <link rel="stylesheet/less" type="text/css" href="/styles/main.less">
+  <link rel="stylesheet/less" type="text/css" href="styles/main.less">
   <meta itemprop="dummyImageCategory" content="Landscapes">
   <meta itemprop="dummyContentLength" content="short">
   <meta itemprop="defaultBackground" content="/images/background.jpg" data-width="1800" data-height="1800" data-position="c" data-style="fill" data-color="#665b42">
@@ -31,7 +31,7 @@
 
     {{{title}}}
 
-    {{#region "columnizer" id="main-region" max_cols="3" max_auto_assets="0" dummy_content="I-1,I-1,I-1|V-1|T-1,T-1"}}
+    {{#region "columnizer" id="main-region" max_cols="3" max_auto_assets="0" dummy_content="T-1|T-1,T-1|T-1,T-1,T-1|I-1|I-2|I-1,I-2|I-1,I-2,I-3|D-1|D-3|D-1,D-3|D-1,D-2,D-3|E-1|E-2|E-1,E-2|E-1,E-2,E-3"}}
 
       {{#asset "text" size="1"}}
         {{{title}}}
@@ -47,18 +47,39 @@
         {{{title}}}
         {{{body}}}
       {{/asset}}
-
+      
       {{#asset "imagegroup" size="1"}}
         {{#if_equal layout.sortOrder 0}}
           <div class="header-image">
-            {{{imageslider images width="740" height="484" crop-single=true}}}
+            {{#if lightbox_enabled}}
+                <div class="my-lightbox-parent">
+                    <div class="my-cover">
+                        <div class="bg"></div>
+                        <div class="view">view</div>
+                    </div>
+                    {{{imageslider images width="740" height="484" crop-single=true}}}
+                </div>
+            {{else}}
+                {{{imageslider images width="740" height="484" crop-single=true}}}
+            {{/if}}
             {{#if_or title description}}
               <div class="text">{{{title}}}{{{description}}}</div>
             {{/if_or}}
           </div>
         {{else}}
           <div class="wrap">
-            {{{imageslider images width="220" height="176"}}}
+            {{#if lightbox_enabled}}
+                <div class="my-lightbox-parent">
+                    <div class="my-cover">
+                        <div class="bg"></div>
+                        <div class="view">view</div>
+                    </div>
+                    {{{imageslider images width="220" height="176"}}}
+                </div>
+            {{else}}
+                {{{imageslider images width="220" height="176"}}}
+            {{/if}}
+         
             <div class="text">
               {{{title}}}
               {{{description}}}
@@ -69,15 +90,38 @@
  
       {{#asset "imagegroup" size="2"}}
         {{{title}}}
-        {{{imageslider images width="340" height="264" crop-single="true"}}}
+        
+            {{#if lightbox_enabled}}
+                <div class="my-lightbox-parent">
+                    <div class="my-cover">
+                        <div class="bg"></div>
+                        <div class="view">view</div>
+                    </div>
+                    {{{imageslider images width="340" height="264" crop-single="true"}}}
+                </div>
+            {{else}}
+                {{{imageslider images width="340" height="264" crop-single="true"}}}
+            {{/if}}
+            
         <div class="text">
           {{{description}}}
         </div>
       {{/asset}}
   
       {{#asset "imagegroup" size="3"}}
-        {{{imageslider images width="220" height="176" crop-single="true"}}}
-        <div class="text">
+            {{#if lightbox_enabled}}
+                <div class="my-lightbox-parent">
+                    <div class="my-cover">
+                        <div class="bg"></div>
+                        <div class="view">view</div>
+                    </div>
+                    {{{imageslider images width="220" height="176" crop-single="true"}}}
+                 </div>
+            {{else}}
+                {{{imageslider images width="220" height="176" crop-single="true"}}}
+            {{/if}}
+            
+       <div class="text">
           {{{title}}}
           {{{description}}}
         </div>
